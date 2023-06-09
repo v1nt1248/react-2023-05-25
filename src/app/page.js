@@ -36,9 +36,9 @@ export default function Home() {
   return (
     <React.Fragment>
       <Search
-      text={searchText}
-      placeholder="Введите название ресторана"
-      onChange={changeSearchText}
+        text={searchText}
+        placeholder="Введите название ресторана"
+        onChange={changeSearchText}
       />
 
       {
