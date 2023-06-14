@@ -1,8 +1,9 @@
 import { useCount } from '@/hooks/useCount'
 import styles from "./styles.module.scss";
+import classNames from "classnames";
 import { Button } from "@/components/Button/Button";
 
-export const Dish = ({ dish }) => {
+export const Dish = ({ dish, last = false }) => {
   const [count, changeCount] = useCount({ initialVaue: 0 });
 
   if (!dish) {
@@ -12,33 +13,45 @@ export const Dish = ({ dish }) => {
   const { name, price, ingredients } = dish;
 
   return (
-    <div className={styles.root}>
-      <p>{name}</p>
-      <p>{price}</p>
-      <div>
+    <div className={classNames(
+        styles.root,
+        {
+          [styles['root-last']]: last,
+        },
+      )}
+    >
+      <p>
+        <b>Dish:  </b>
+        <i>{name}</i>
+      </p>
+      <p>
+        <b>Price:  </b>  
+        <span>{price}</span>
+      </p>
+      <p className={styles['root-order']}>
         <Button
           onClick={() => changeCount(-1)}
+          shape="circle"
           disabled={count === 0}
-          className={styles.action}
+          className={styles['root-action']}
         >
           -
         </Button>
         {count}
         <Button
           onClick={() => changeCount(1)}
+          shape="circle"
           disabled={count === 5}
-          className={styles.action}
-          viewVariant="secondary"
+          className={styles['root-action']}
         >
           +
         </Button>
-      </div>
+      </p>
       {count > 0 && (
-        <ul>
-          {ingredients.map((ingredient, index) => (
-            <li key={index}>{ingredient}</li>
-          ))}
-        </ul>
+        <p>
+          <b>Ingredients: </b>
+          <span>{ingredients.join(', ')}</span>
+        </p>
       )}
     </div>
   );
