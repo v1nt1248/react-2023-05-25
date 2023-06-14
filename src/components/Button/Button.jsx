@@ -10,11 +10,9 @@ const ViewVariantStyle = {
 export const Button = ({
   children,
   onClick,
-  selected,
   disabled,
   className,
   shape,
-  size,
 }) => {
   return (
     <button
@@ -25,7 +23,6 @@ export const Button = ({
         className,
         {
           [ViewVariantStyle[shape]]: ViewVariantStyle[shape],
-          [styles.root-selected]: selected,
           [styles.root-disabled]: disabled,
         },
       )}

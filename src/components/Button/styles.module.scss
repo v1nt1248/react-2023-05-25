@@ -3,7 +3,6 @@
   --button-text-size: 16px;
   --button-bg-color: #fff;
   --button-ng-color-hovered: rgba(0, 0, 0, 0.12);
-  --button-bg-color-selected: #ffc765;
 
   position: relative;
   width: var(--button-size);
@@ -20,10 +19,6 @@
 
   &:hover {
     background-color: var(--button-ng-color-hovered);
-  }
-
-  &-selected {
-    background-color: var(--button-bg-color-selected);
   }
 
   &-disabled {
