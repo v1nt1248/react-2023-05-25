@@ -1,11 +1,9 @@
-/* eslint-disable react/jsx-key */
-import React, { useState } from "react";
-
+import { useCount } from '@/hooks/useCount'
 import styles from "./styles.module.scss";
 import { Button } from "@/components/Button/Button";
 
 export const Dish = ({ dish }) => {
-  const [count, setCount] = useState(0);
+  const [count, changeCount] = useCount({ initialVaue: 0 });
 
   if (!dish) {
     return null;
@@ -19,7 +17,7 @@ export const Dish = ({ dish }) => {
       <p>{price}</p>
       <div>
         <Button
-          onClick={() => setCount(count - 1)}
+          onClick={() => changeCount(-1)}
           disabled={count === 0}
           className={styles.action}
         >
@@ -27,7 +25,7 @@ export const Dish = ({ dish }) => {
         </Button>
         {count}
         <Button
-          onClick={() => setCount(count + 1)}
+          onClick={() => changeCount(1)}
           disabled={count === 5}
           className={styles.action}
           viewVariant="secondary"
@@ -37,8 +35,8 @@ export const Dish = ({ dish }) => {
       </div>
       {count > 0 && (
         <ul>
-          {ingredients.map((ingredient) => (
-            <li>{ingredient}</li>
+          {ingredients.map((ingredient, index) => (
+            <li key={index}>{ingredient}</li>
           ))}
         </ul>
       )}

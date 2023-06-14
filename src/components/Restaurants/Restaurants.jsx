@@ -44,8 +44,9 @@ export const Restaurants = ({ restaurants }) => {
     <div>
       <input onChange={(event) => onChangeSearchValue(event.target.value)} />
       <div>
-        {filteredRestaurants.map(({ name }, index) => (
+        {filteredRestaurants.map(({ name, id }, index) => (
           <Button
+            key={id}
             onClick={() => {
               setActiveRestaurantIndex(index);
             }}
