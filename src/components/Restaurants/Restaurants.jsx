@@ -16,6 +16,7 @@ export const Restaurants = ({ restaurantIds }) => {
       <div className={styles.filters}>
         {restaurantIds.map((id) => (
           <RestaurantTabContainer
+            key={id}
             restaurantId={id}
             onClick={() => setActiveRestaurantId(id)}
           />

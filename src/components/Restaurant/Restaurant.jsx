@@ -1,8 +1,6 @@
-/* eslint-disable react/jsx-key */
-import { Menu } from "@/components/Menu/Menu";
-import { Reviews } from "@/components/Reviews/Reviews";
-import React from "react";
-
+'use client';
+import { MenuContainer } from "@/containers/MenuContainer";
+import { ReviewsContainer } from "@/containers/ReviewsContainer";
 import styles from "./styles.module.scss";
 
 export const Restaurant = ({ restaurant }) => {
@@ -10,13 +8,15 @@ export const Restaurant = ({ restaurant }) => {
     return null;
   }
 
-  const { name, menu, reviews } = restaurant;
+  const { name, id } = restaurant;
 
   return (
-    <div>
+    <div className={styles.root}>
       <h2>{name}</h2>
-      {/* <Menu menu={menu} className={styles.menu} />
-      <Reviews reviews={reviews} className={styles.reviews} /> */}
+      <h3 className={styles.menu}>Menu</h3>
+      <MenuContainer restaurantId={id} />
+      <h3 className={styles.reviews}>Review</h3>
+      <ReviewsContainer restaurantId={id} />
     </div>
   );
 };
