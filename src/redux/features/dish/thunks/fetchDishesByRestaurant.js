@@ -14,7 +14,8 @@ export const fetchDishesByRestaurant = createAsyncThunk(
     }
 
     const { menu } = currentRestaurant
-    const contionueFetch = menu.some(dishId => !selectDishIds(state).includes(dishId))
+    const loadedDishes = selectDishIds(state)
+    const contionueFetch = menu.some(dishId => !loadedDishes.includes(dishId))
     if (!contionueFetch) {
       return rejectWithValue(STATUSES.alreadyLoaded);
     }
