@@ -1,5 +1,4 @@
 import styles from "./styles.module.scss";
-import { ReviewFormContainer } from "@/containers/ReviewFormContainer";
 import { MenuContainer } from "@/containers/MenuContainer";
 import { Reviews } from "../Reviews/Reviews";
 
@@ -11,7 +10,6 @@ export const Restaurant = ({ restaurant }) => {
       <h2>{name}</h2>
       <MenuContainer restaurantId={id} className={styles.menu} />
       <Reviews restaurantId={id} className={styles.reviews} />
-      {/* <ReviewFormContainer restaurantId={id} /> */}
     </div>
   );
 };
