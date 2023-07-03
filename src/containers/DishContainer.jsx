@@ -1,3 +1,5 @@
+"use client";
+
 import { Dish } from "@/components/Dish/Dish";
 import { cartActions } from "@/redux/features/cart";
 import { selectDishAmount } from "@/redux/features/cart/selectors";
